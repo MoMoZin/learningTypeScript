@@ -2,7 +2,17 @@ let displayName: string = "Jess's standing desk";
 let inventoryType: string = "Funiture";
 let trackingNumber: string = "FD12345";
 let createDate: Date = new Date();
-let originalCost: number = 425;
+
+// define custom type
+type Cost = number | string;
+
+let originalCost: Cost = 425;
+
+//assigning custom type to number type
+let testCost: Cost;
+if (typeof testCost === "number") {
+  let cost: number = testCost;
+}
 
 enum InventoryItemType {
   Computer = "computer",
@@ -14,7 +24,7 @@ interface InventoryItem {
   inventoryType: InventoryItemType;
   readonly trackingNumber: string;
   createDate: Date;
-  originalCost?: number;
+  originalCost?: Cost;
 
   //adding method to interface
   calculateSomething?(something: number): number;
@@ -38,5 +48,6 @@ saveInventoryItem({
   displayName: "Dell Pro",
   inventoryType: InventoryItemType.Computer,
   trackingNumber: "MBP12322w3r",
-  createDate: new Date()
+  createDate: new Date(),
+  originalCost: "NA"
 });
