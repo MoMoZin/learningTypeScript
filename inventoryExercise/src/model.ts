@@ -4,9 +4,14 @@ let trackingNumber: string = "FD12345";
 let createDate: Date = new Date();
 let originalCost: number = 425;
 
+enum InventoryItemType {
+  Computer = "computer",
+  Furniture = "furniture"
+}
+
 interface InventoryItem {
   displayName: string;
-  inventoryType: string;
+  inventoryType: InventoryItemType;
   readonly trackingNumber: string;
   createDate: Date;
   originalCost?: number;
@@ -28,3 +33,10 @@ let inventoryItem = getInventoryItem(trackingNumber);
 inventoryItem.createDate = new Date();
 
 saveInventoryItem(inventoryItem);
+
+saveInventoryItem({
+  displayName: "Dell Pro",
+  inventoryType: InventoryItemType.Computer,
+  trackingNumber: "MBP12322w3r",
+  createDate: new Date()
+});
