@@ -7,9 +7,13 @@ let originalCost: number = 425;
 interface InventoryItem {
   displayName: string;
   inventoryType: string;
-  trackingNumber: string;
+  readonly trackingNumber: string;
   createDate: Date;
-  originalCost: number;
+  originalCost?: number;
+
+  //adding method to interface
+  calculateSomething?(something: number): number;
+  addNote?: (note: string) => string;
 }
 
 function getInventoryItem(trackingNumber: string): InventoryItem {
