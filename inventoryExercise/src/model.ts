@@ -51,3 +51,18 @@ saveInventoryItem({
   createDate: new Date(),
   originalCost: "NA"
 });
+
+function clone<T, U>(source: T, option: U): T {
+  const serialized = JSON.stringify(source);
+  return JSON.parse(serialized);
+}
+
+const cloned = clone(inventoryItem, { deep: true });
+
+interface KeyValuePair<Tkey, TValue> {
+  Key: Tkey,
+  Value: TValue;
+}
+
+var keyValue: KeyValuePair<string, number> = { Key: "something", Value: 1234 };
+var keyValue1: KeyValuePair<string, boolean> = { Key: "something", Value: true };
